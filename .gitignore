@@ -1,0 +1,57 @@
+# ---- Input data: never commit ----
+# Summary statistics are downloaded by scripts/00_fetch_data.sh and remain governed by
+# the original providers' terms. The one committed file under data/ is the probe
+# annotation for the CpGs carried into step 3.
+data/raw/
+data/ref/1000G_EUR_Phase3_plink/
+data/ref/*.chain
+data/ref/*.chain.gz
+
+# ---- Pipeline scratch: never commit ----
+work/
+
+# ---- Third-party binaries: never commit ----
+bin/
+
+# ---- Summary-statistics formats, in case anything lands outside data/ ----
+*.gz
+*.bgz
+*.zip
+*.tar
+*.tar.gz
+*.bed
+*.bim
+*.fam
+*.besd
+*.epi
+*.esi
+*.ma
+*.msmr
+*.txt.gz
+*.tsv.gz
+*.csv.gz
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+.pytest_cache/
+*.egg-info/
+
+# ---- Editors and OS ----
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---- Local logs ----
+*.log
+scratch/
+tmp/
+*.tmp
+
+# ---- Keep empty directories Git would otherwise drop ----
+!.gitkeep

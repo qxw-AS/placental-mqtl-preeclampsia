@@ -1,0 +1,16 @@
+# Python packages used for the analyses reported in the manuscript.
+# Versions are pinned to those stated in Methods ("Statistical analysis").
+# Python 3.14.8
+
+numpy==2.5.3
+pandas==3.0.6
+scipy==1.18.1
+matplotlib==3.11.2
+
+# hg19 -> hg38 coordinate conversion (step 2). pyliftover reads the UCSC chain
+# directly; record the version you actually used in environment/session_info.txt.
+pyliftover>=0.4
+
+# Not needed by the four pipeline steps. Required only if you re-derive the
+# Figure 1 annotation comparisons (CpG island / UCSC gene-region overlap).
+# pybedtools>=0.10

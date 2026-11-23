@@ -1,0 +1,40 @@
+SMR / HEIDI binary provenance
+=============================
+
+Software : SMR (Summary-data-based Mendelian Randomization)
+Version  : v1.3.1
+Platform : Linux x86-64
+Build    : 2024-03-07
+Source   : https://cnsgenomics.com/software/smr/
+Cite     : Zhu Z, Zhang F, Hu H, et al. Integration of summary data from GWAS and eQTL
+           studies predicts complex trait gene targets. Nat Genet. 2016;48(5):481-487.
+
+The binary is NOT redistributed in this repository. Download it from the source above,
+place it at bin/smr, and make it executable (chmod +x bin/smr).
+
+Record the checksum of the exact build you ran, so that a reader can confirm they have
+the same binary:
+
+    sha256sum bin/smr
+
+Paste the output below before the first release:
+
+    SHA256(bin/smr) = <FILL IN>
+
+Note on bit-identical reproducibility
+-------------------------------------
+SMR is a compiled third-party binary. Results depend on the build, not only on the version
+string. If your SHA256 differs from the one recorded here, small numerical differences in
+b_SMR and P_HEIDI are expected even with identical inputs.
+
+The binary is used for three things only, all in scripts/03_heidi.py:
+
+    --make-besd --eqtl-flist <flist> --out <prefix>
+        build the BESD store from the per-CpG .esd files
+
+    --beqtl-summary <prefix>.besd --gwas-summary <outcome>.ma --multi --bfile <ref> --out <prefix>
+        SMR-multi, which also reports p_HEIDI and nsnp_HEIDI
+
+The genome-wide single-SNP screen is NOT run by the binary: it is computed in Python in
+scripts/02_smr_screen.py using the same ratio estimator and delta-method SE, so that all
+242,924 pairs can be processed in one pass. See the README for why the two agree exactly.

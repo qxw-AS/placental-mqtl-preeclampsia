@@ -1,0 +1,16 @@
+* text=auto eol=lf
+
+# Shell and Python must keep LF: a CRLF shebang fails on Linux with
+# "/usr/bin/env: 'bash\r': No such file or directory".
+*.sh   text eol=lf
+*.py   text eol=lf
+*.md   text eol=lf
+*.txt  text eol=lf
+*.tsv  text eol=lf
+*.json text eol=lf
+*.cff  text eol=lf
+
+# Binary or externally generated
+*.gz   binary
+*.pdf  binary
+*.png  binary
